@@ -4,7 +4,7 @@ from PyQt4 import QtCore, QtGui,QtNetwork
 class GetAndSendWindow(QtGui.QDialog):
 
     def __init__(self, parent=None):
-        super(FtpWindow, self).__init__(parent)
+        super(GetAndSendWindow, self).__init__(parent)
 
         self.resize(400, 300)
 
