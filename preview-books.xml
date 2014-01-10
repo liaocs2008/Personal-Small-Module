@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="Google Books preview" width="800" height="600" scrolling="false" directory_title="Google Books Preview" description="Insert a Viewer for Google Books">
+<Require feature="analytics"/>
+</ModulePrefs>
+<UserPref name="ID" display_name="Book ID" required="true" default_value="ISBN:1935182331"/>
+<UserPref name="PWH" display_name="Width (pixels)" required="true" default_value="600"/>
+<UserPref name="PHT" display_name="Height (pixels)" required="true" default_value="400"/>
+<UserPref name="LAN" display_name="Language" default_value="French - fr" datatype="enum">
+<EnumValue value="Armenian - hy"/>
+<EnumValue value="Bulgarian - bg"/>
+<EnumValue value="Catalan - ca"/>
+<EnumValue value="Chinese (Hong Kong) - zh-HK"/>
+<EnumValue value="Chinese (Traditional) - zh-TW"/>
+<EnumValue value="Croatian - hr"/>
+<EnumValue value="Czech - cs"/>
+<EnumValue value="Danish - da"/>
+<EnumValue value="Dutch - nl"/>
+<EnumValue value="English - en"/>
+<EnumValue value="Filipino - fil"/>
+<EnumValue value="Finnish - fi"/>
+<EnumValue value="French - fr"/>
+<EnumValue value="German - de"/>
+<EnumValue value="Greek - el"/>
+<EnumValue value="Hindi - hi"/>
+<EnumValue value="Hungarian - hu"/>
+<EnumValue value="Icelandic - is"/>
+<EnumValue value="Indonesian - id"/>
+<EnumValue value="Italian - it"/>
+<EnumValue value="Japanese - ja"/>
+<EnumValue value="Korean - ko"/>
+<EnumValue value="Latvian - lv"/>
+<EnumValue value="Lithuanian - lt"/>
+<EnumValue value="Norwegian - no"/>
+<EnumValue value="Polish - pl"/>
+<EnumValue value="Portuguese (Brazil) - pt-BR"/>
+<EnumValue value="Portuguese (Portugal) - pt-PT"/>
+<EnumValue value="Romanian - ro"/>
+<EnumValue value="Russian - ru"/>
+<EnumValue value="Serbian - sr"/>
+<EnumValue value="Slovak - sk"/>
+<EnumValue value="Slovenian - sl"/>
+<EnumValue value="Spanish - es"/>
+<EnumValue value="Swedish - sv"/>
+<EnumValue value="Thai - th"/>
+<EnumValue value="Turkish - tr"/>
+<EnumValue value="Ukrainian - uk"/>
+<EnumValue value="Vietnamese - vi"/>
+</UserPref>
+<UserPref name="CCOL" display_name="Background of Container" required="true" default_value="#d1dae3"/>
+<Content type="html">
+<![CDATA[
+<style text="text/css">
+ 
+ body
+ {
+ background-color: __UP_CCOL__;
+ margin: 0;
+ padding: 0;
+ }
+ 
+ </style>
+ 
+ 
+ <center>
+ <div id="myid" style="width: __UP_PWH__px; height: __UP_PHT__px;"></div>
+ </center>
+ 
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ 
+ 
+ <script type="text/javascript">
+ 
+ // Global variables
+ 
+ 
+ var prefs = new gadgets.Prefs();
+ 
+ var lan="fr";
+ var s_lan = prefs.getString("LAN");
+ if (s_lan)
+ {
+ var i = s_lan.indexOf("-");
+ lan=s_lan.substring(i+2);
+ }
+ 
+ </script>
+ 
+ 
+ 
+ <script type="text/javascript">
+ 
+ google.load("books", "0", {"language": lan});
+ 
+ 
+ function alertNotFound()
+ {
+ alert("Error, could not embed the book");
+ }
+ 
+ function initialize()
+ {
+ var viewer = new google.books.DefaultViewer(document.getElementById('myid'));
+ viewer.load('__UP_ID__', alertNotFound);
+ }
+ 
+ google.setOnLoadCallback(initialize);
+ 
+ _IG_Analytics("UA-442758-35", "/gg_books"); 
+ 
+ </script>
+]]>
+</Content>
+</Module>​
