@@ -1,6 +1,6 @@
 set nocompatible
 syntax on
-filetype off
+filetype off  "vundle setting required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -20,6 +20,14 @@ call vundle#end()
 filetype plugin indent on
 
 set number
+
+set cindent
+
+"Automatically change the current directory
+autocmd BufEnter * silent! lcd %:p:h
+
+"Tab
+set shiftwidth=4
 set tabstop=4
 set expandtab
 
