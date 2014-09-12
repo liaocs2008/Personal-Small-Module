@@ -9,7 +9,7 @@ Plugin 'gmarik/vundle'
 "vim-scripts repos
 "git
 Plugin 'scrooloose/nerdtree'
-let NERDTreeWinPos='right'
+let NERDTreeWinPos='left'
 let NERDTreeWinSize=31
 let NERDTreeChDirMode=1
 
