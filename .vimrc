@@ -1,3 +1,7 @@
+"Instructions for setup
+"git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+":PluginInstall
+
 set nocompatible
 syntax on
 filetype off  "vundle setting required
@@ -29,8 +33,8 @@ autocmd BufEnter * silent! lcd %:p:h
 
 "Tab
 set smartindent
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set expandtab
 
 "Vectical matching line
