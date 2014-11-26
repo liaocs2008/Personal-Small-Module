@@ -38,7 +38,9 @@ set tabstop=2
 set expandtab
 
 "Vectical matching line
-set colorcolumn=80
+if version > 703
+  set colorcolumn=80
+endif
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 "Folding
