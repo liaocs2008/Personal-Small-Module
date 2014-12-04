@@ -28,5 +28,5 @@ if [ -d "$IMPALA" ]; then
   cd $IMPALA && git show-ref --verify --quiet refs/heads/$BRANCH && echo "Already got branch $BRANCH" || echo -e "\033[0;31mBranch $BRANCH not found"
 else                                                                            
   # impala not found                                                            
-  git clone https://github.com/cloudera/Impala.git                              
+  git clone https://github.com/cloudera/Impala.git && cd $IMPALA && git checkout $BRANCH                             
 fi
