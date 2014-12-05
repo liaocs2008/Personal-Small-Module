@@ -30,3 +30,6 @@ else
   # impala not found                                                            
   git clone https://github.com/cloudera/Impala.git && cd $IMPALA && git checkout $BRANCH                             
 fi
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/                                
+./buildall.sh -skiptests -noclean
