@@ -25,7 +25,8 @@ color sudo ln -s /usr/lib/libgdal.so /usr/local/lib/libgdal.so || ls -l /usr/loc
 IMPALA="Impala"                                                                 
 BRANCH=cdh5-trunk                                                               
 if [ -d "$IMPALA" ]; then                                                       
-  cd $IMPALA && git show-ref --verify --quiet refs/heads/$BRANCH && echo "Already got branch $BRANCH" || echo -e "\033[0;31mBranch $BRANCH not found"
+  cd $IMPALA
+  git show-ref --verify --quiet refs/heads/$BRANCH && echo "Already got branch $BRANCH" || echo -e "\033[0;31mBranch $BRANCH not found"
 else                                                                            
   # impala not found                                                            
   git clone https://github.com/cloudera/Impala.git && cd $IMPALA && git checkout $BRANCH                             
