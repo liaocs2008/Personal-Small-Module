@@ -27,6 +27,8 @@ filetype plugin indent on
 
 set number
 
+"disable auto comment with all files
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "Automatically change the current directory
 autocmd BufEnter * silent! lcd %:p:h
