@@ -21,6 +21,11 @@ let NERDTreeChDirMode=1
 Plugin 'jcf/vim-latex'
 let g:tex_flavor='latex'
 
+
+Plugin 'Shougo/neocomplcache.vim'                                               
+let g:tex_flavor='latex'                                                        
+let g:neocomplcache_enable_at_startup = 1
+
 call vundle#end()
 
 filetype plugin indent on
