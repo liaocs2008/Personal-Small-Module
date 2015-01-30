@@ -13,6 +13,7 @@ then
       mkdir code/${PROJECT_NAME}
       touch code/${PROJECT_NAME}/README
       mkdir data/${PROJECT_NAME}
+      mkdir doc/${PROJECT_NAME}
       if [ $# -gt 1 ] && [ $2 -eq 1 ];
       then
         git init code/${PROJECT_NAME}
@@ -31,6 +32,7 @@ then
       echo "REMOVING PROJECT ..." ${PROJECT_NAME}
       rm -rf code/${PROJECT_NAME}
       rm -rf data/${PROJECT_NAME}
+      rm -rf doc/${PROJECT_NAME}
       echo "DONE!"
     else
       echo "bash $0 [r|remove] [project_name]"
