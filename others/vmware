@@ -1,0 +1,12 @@
+# check kernel-headers, kernel-devel and kernel-modules matching, rpm -aq | grep kernel
+
+cp /usr/src/kernels/`uname -r`/include/generated/uapi/linux/version.h /lib/modules/`uname -r`/build/include/linux/
+
+# following for a patch to build vmnet
+curl http://pastie.org/pastes/9934018/download -o /tmp/vmnet-3.19.patch
+cd /usr/lib/vmware/modules/source
+tar -xf vmnet.tar
+patch -p0 -i /tmp/vmnet-3.19.patch
+tar -cf vmnet.tar vmnet-only
+rm -r *-only
+vmware-modconfig --console --install-all
